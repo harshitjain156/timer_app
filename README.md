@@ -19,6 +19,35 @@ A modern, customizable multi-timer app built with React Native and Expo. Support
 
 ---
 
+## 🏗️ Project Architecture
+
+This project is fully modularized for maintainability and scalability:
+
+- **app/**: All screens, using file-based routing (e.g., Home, History, Add/Edit Timer, Categories).
+- **components/**: Reusable UI components, further organized:
+  - **timer_list/**: TimerList, TimerCard, TimerControls, CategorySection, BulkActions, TimerForm, etc.
+  - **shared/**: Common UI elements (Card, PrimaryButton, SecondaryButton, ProgressBar, EmptyState, etc.).
+- **context/**: Global state management using React Context:
+  - **ThemeContext**: App-wide light/dark theme and color palette.
+  - **TimerContext**: Timers and categories, with all CRUD logic and persistence.
+  - **HistoryContext**: Timer history, with add, clear, and export logic.
+- **notification/**: All notification logic (scheduling, canceling, initialization) in one place.
+- **utils/**: Utility functions (e.g., time formatting, grouping, AsyncStorage helpers).
+- **types/**: Centralized TypeScript types and interfaces (e.g., Timer, HistoryEntry) for type safety and DRY code.
+- **assets/**: Fonts and images.
+- **app_apk/**: Place your built APK here for sharing.
+
+**Key Modularization Highlights:**
+- All business logic and state are managed via context providers (theme, timers, history).
+- All UI is broken into small, focused, and reusable components.
+- Shared UI and utility logic are centralized for easy reuse and consistency.
+- Types/interfaces are defined in one place and imported everywhere.
+- Notification logic is fully separated and initialized at app startup.
+
+This structure makes the app easy to extend, test, and maintain.
+
+---
+
 ## 📱 Screenshots
 
 > _Add screenshots here_
@@ -52,7 +81,12 @@ A modern, customizable multi-timer app built with React Native and Expo. Support
 timer_app/
 ├── app/                # App screens (file-based routing)
 ├── components/         # Reusable UI components
-│   └── timer_list/     # TimerList and subcomponents
+│   ├── timer_list/     # TimerList and subcomponents
+│   └── shared/         # Shared UI (buttons, cards, etc.)
+├── context/            # Context providers (theme, timers, history)
+├── notification/       # Notification logic
+├── utils/              # Utility functions
+├── types/              # TypeScript types/interfaces
 ├── assets/             # Fonts and images
 ├── app_apk/            # (Place your APK here)
 ├── package.json        # Project metadata and scripts
