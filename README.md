@@ -46,6 +46,30 @@ This project is fully modularized for maintainability and scalability:
 
 This structure makes the app easy to extend, test, and maintain.
 
+## ⚙️ How Timers Work (Efficient Multi-Timer Approach)
+
+This app is designed to efficiently handle multiple timers running in parallel, whether you start a single timer or all timers in a category at once. Here's how it works:
+
+- **Single Timer:**
+  - When you start an individual timer, a dedicated interval is created for that timer.
+  - The timer counts down every second, updates its state, and triggers halfway/completion notifications as needed.
+  - When the timer completes, it is added to the history log and notifications are cleared.
+
+- **Bulk/Category Start (Start All):**
+  - When you start all timers in a category, the app uses a **single global interval** to update all running timers in that category (and any others running at the same time).
+  - Every second, the global interval decrements the remaining time for all running timers in one efficient tick.
+  - This approach is much more scalable and performant than creating a separate interval for each timer, especially if you have many timers running at once.
+  - Each timer still gets its own notifications and is added to history upon completion.
+
+- **Performance Benefits:**
+  - Using a single global interval for bulk actions reduces CPU and memory usage, making the app smooth even with many timers.
+  - All notification scheduling/cancellation and history logging are handled per timer, so you never miss an alert or a completed session.
+
+- **Persistence:**
+  - All timer state, categories, and history are saved using AsyncStorage, so your timers and history are never lost.
+
+This architecture ensures that the app is both user-friendly and highly efficient, no matter how many timers you run at once.
+
 ---
 
 ## 📱 Screenshots
@@ -132,18 +156,9 @@ npx expo run:android --variant release
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
----
-
 ## 🙏 Credits
 
 - [Expo](https://expo.dev/)
 - [React Native](https://reactnative.dev/)
 - [All open source contributors]
 
----
-
-> _Developed with ❤️ by [Your Name]_
