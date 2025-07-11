@@ -72,11 +72,6 @@ This architecture ensures that the app is both user-friendly and highly efficien
 
 ---
 
-## 📱 Screenshots
-
-> _Add screenshots here_
-
----
 
 ## 📦 Download APK
 
