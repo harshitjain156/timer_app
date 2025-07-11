@@ -1,50 +1,115 @@
-# Welcome to your Expo app 👋
+# Timer App ⏰
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+A modern, customizable multi-timer app built with React Native and Expo. Supports multiple named timers, categories, progress visualization, history, dark/light themes, and local notifications. Designed for productivity, workouts, study sessions, and more.
 
-## Get started
+---
 
-1. Install dependencies
+## 🚀 Features
 
-   ```bash
-   npm install
-   ```
+- **Multiple Timers:** Create timers with custom names, durations, and categories.
+- **Category Grouping:** Timers are grouped by category with expandable/collapsible sections.
+- **Timer Management:** Start, pause, reset, and delete individual timers. Bulk actions for all timers in a category.
+- **Progress Visualization:** See progress bars and percentages for each timer.
+- **Timer History:** View completed timer sessions with name, category, and completion time. Export history as JSON.
+- **Customizable Categories:** Add/delete categories. Only non-empty categories are shown.
+- **Theme Support:** Toggle between light and dark themes.
+- **Custom Alerts:** Enable halfway and completion alerts for each timer. Get local notifications, even in the background.
+- **Persistence:** All timers, categories, and history are saved using AsyncStorage.
+- **Cross-Platform:** Works on Android and iOS. Tested for compatibility.
 
-2. Start the app
+---
 
-   ```bash
-   npx expo start
-   ```
+## 📱 Screenshots
 
-In the output, you'll find options to open the app in a
+> _Add screenshots here_
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+---
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 📦 Download APK
 
-## Get a fresh project
+[![Download APK](https://img.shields.io/badge/Download-APK-blue?logo=android)](./app_apk/timer_app.apk)
 
-When you're ready, run:
+> Place your built APK in the `app_apk` folder as `timer_app.apk` for this button to work.
 
-```bash
-npm run reset-project
+---
+
+## 🛠️ Technologies Used
+
+- [React Native](https://reactnative.dev/)
+- [Expo](https://expo.dev/)
+- [Expo Router](https://expo.github.io/router/docs)
+- [React Navigation](https://reactnavigation.org/)
+- [AsyncStorage](https://react-native-async-storage.github.io/async-storage/)
+- [Expo Notifications](https://docs.expo.dev/versions/latest/sdk/notifications/)
+- [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
+- TypeScript
+
+---
+
+## 📂 Folder Structure
+
+```
+timer_app/
+├── app/                # App screens (file-based routing)
+├── components/         # Reusable UI components
+│   └── timer_list/     # TimerList and subcomponents
+├── assets/             # Fonts and images
+├── app_apk/            # (Place your APK here)
+├── package.json        # Project metadata and scripts
+├── tsconfig.json       # TypeScript config
+└── ...
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 🏁 Getting Started
 
-To learn more about developing your project with Expo, look at the following resources:
+### 1. Install dependencies
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+```bash
+npm install
+```
 
-## Join the community
+### 2. Start the app (development)
 
-Join our community of developers creating universal apps.
+```bash
+npx expo start
+```
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Open in Expo Go, Android emulator, or iOS simulator.
+
+### 3. Build APK (Android)
+
+```bash
+npx expo run:android --variant release
+```
+
+- The APK will be generated in the `android/app/build/outputs/apk/release/` directory. Move it to `app_apk/timer_app.apk` for sharing.
+
+---
+
+## 🤝 Contributing
+
+1. Fork this repo and clone your fork.
+2. Create a new branch: `git checkout -b feature/your-feature`
+3. Make your changes and commit: `git commit -m 'Add feature'`
+4. Push to your fork: `git push origin feature/your-feature`
+5. Open a Pull Request describing your changes.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+---
+
+## 🙏 Credits
+
+- [Expo](https://expo.dev/)
+- [React Native](https://reactnative.dev/)
+- [All open source contributors]
+
+---
+
+> _Developed with ❤️ by [Your Name]_
